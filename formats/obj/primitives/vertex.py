@@ -1,3 +1,5 @@
+import numpy as np
+
 class Vertex:
     """Vertex class
 
@@ -36,4 +38,4 @@ class Vertex:
 
     @property
     def as_vector(self):
-        return (self.x, self.y, self.z, self.w)
+        return np.array(self.x, self.y, self.z, self.w)

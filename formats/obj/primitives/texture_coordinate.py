@@ -1,0 +1,2 @@
+class TextureCoordinate:
+    pass
