@@ -44,3 +44,25 @@ class Vertex:
     @property
     def as_vector(self):
         return np.array((self.x, self.y, self.z, self.w))
+
+
+class VertexDataIndexes:
+    """Full vertex data
+
+    Contains vertex coords, texture coords, vertex normal by index
+
+    """
+    __slots__ = (
+        f'{VERTEX}_index',
+        f'{TEXTURE_COORDINATE}_index',
+        f'{NORMAL}_index'
+    )
+
+    def __init__(self, data):
+        for i, slot in enumerate(self.__slots__):
+            setattr(self, slot, data[i])
+
+    @property
+    def as_vector(self):
+        data = [getattr(self, slot) for slot in self.__slots__]
+        return np.array(data)
